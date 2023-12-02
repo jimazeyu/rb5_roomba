@@ -1,0 +1,46 @@
+<!--
+/*
+
+Copyright 2023, UC San Diego, Contextual Robotics Institute
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the “Software”), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
+-->
+
+<launch>
+  <arg name="camera_id" default="0" /> <!-- 0 for main camera, 1 for tracking camera and 2 for webcames. -->
+  <arg name="frame_rate" default="30" />
+  <arg name="width" default="1920" /> <!-- 1920 for main camera, 1280 for tracking camera --> 
+  <arg name="height" default="1080" /> <!-- 1080 for main camera, 720 for tracking camera -->
+  <arg name="input_format" default="NV12" /> <!-- format for the input stream from camera -->
+  <arg name="output_format" default="RGB" /> <!-- format for the output stream -->
+  <arg name="topic_name_prefix" default="camera" />
+  <arg name="image_compress" default="true" /> 
+
+  <node pkg="rb5_vision" type="rb5_vision" name="rb5_vision" output="screen">
+    <param name="camera_id" value="$(arg camera_id)" />
+    <param name="frame_rate" value="$(arg frame_rate)" />
+    <param name="width" value="$(arg width)" />
+    <param name="height" value="$(arg height)" />
+    <param name="input_format" value="$(arg input_format)" />
+    <param name="output_format" value="$(arg output_format)" />
+    <param name="topic_name" value="$(arg topic_name_prefix)_$(arg camera_id)" />
+    <param name="image_compress" value="$(arg image_compress)" />
+  </node>
+</launch>
