@@ -27,3 +27,5 @@ This repository contains the code and resources for a Roomba-like robot develope
 
 ### Path Planning & Navigation
 <img src="images/navigation.gif" alt="closed loop" style="zoom:35%;" />
+
+### Exploration & Coverage
