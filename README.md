@@ -29,3 +29,4 @@ This repository contains the code and resources for a Roomba-like robot develope
 <img src="images/navigation.gif" alt="closed loop" style="zoom:35%;" />
 
 ### Exploration & Coverage
+
